@@ -8,6 +8,7 @@ package notation;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +36,11 @@ public class NoteFormServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        if(session.getAttribute("level") == null || session.getAttribute("level").toString() != "1")
+        {
+            RequestDispatcher rd = request.getRequestDispatcher("/DeconnexionServlet");
+            rd.forward(request, response);
+        }
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

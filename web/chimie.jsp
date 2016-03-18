@@ -9,6 +9,14 @@
         <h1>Chimie</h1>
         <hr/>
         <fieldset><legend>Donner une note sur 5</legend>
+            <%
+                HttpSession ses = request.getSession();
+                if(ses.getAttribute("level") == null || ses.getAttribute("level").toString() != "1")
+                {
+                    RequestDispatcher rd = request.getRequestDispatcher("/DeconnexionServlet");
+                    rd.forward(request, response);
+                }
+            %>
             <form action="NoteFormServlet">
                 <select name="chimie">
                     <option>5</option>

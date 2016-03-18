@@ -31,7 +31,7 @@ public class ModeleConnexionServlet {
             if (login.equals("user") && mdp.equals("user"))
             {
                 try {
-                    session.setAttribute("level",1);
+                    session.setAttribute("level", "1");
                     response.sendRedirect("maths.jsp");
                 }catch (IOException e){
                     e.printStackTrace();
@@ -40,7 +40,7 @@ public class ModeleConnexionServlet {
             else if (login.equals("admin") && mdp.equals("admin"))
             {
                 try {
-                    session.setAttribute("level",0);
+                    session.setAttribute("level", "0");
                     response.sendRedirect("bd.jsp");
                 }catch (IOException e){
                     e.printStackTrace();

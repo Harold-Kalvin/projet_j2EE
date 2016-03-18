@@ -13,6 +13,12 @@
             <tr>
                 <%
                     HttpSession ses = request.getSession();
+                    if(ses.getAttribute("level") == null || ses.getAttribute("level").toString() != "1")
+                    {
+                        RequestDispatcher rd = request.getRequestDispatcher("/DeconnexionServlet");
+                        rd.forward(request, response);
+                    }
+                    
                     out.print("<td>" + ses.getAttribute("maths").toString() + "</td><td>" + ses.getAttribute("physique").toString() + "</td><td>" + ses.getAttribute("chimie").toString() + "</td>");
                 %>
             </tr>
