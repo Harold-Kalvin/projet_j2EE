@@ -15,7 +15,7 @@
         <h3>Page de connexion</h3>
         <fieldset>
             <legend>Autenthification</legend>
-             <form action="actionServlet" method="post">
+             <form action="ConnexionServlet" method="post">
             <p>login : <input type="text" name="login" value="" size="10" /></p>
             
             <p>mdp : <input type="password" name="mdp" value="" size="10" /></p>
