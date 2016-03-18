@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ModeleConnexionServlet {
     public ModeleConnexionServlet(){}
         public void verifierIdentifiant(HttpServletRequest request, HttpServletResponse response)
         {
+            HttpSession session = request.getSession();
             response.setContentType("text/html;charset=UTF-8");
             String login = request.getParameter("login");
             String mdp = request.getParameter("mdp");
@@ -29,23 +31,28 @@ public class ModeleConnexionServlet {
             if (login.equals("user") && mdp.equals("user"))
             {
                 try {
-                    request.setAttribute("login",login);
-                    request.setAttribute("mdp",mdp);
+                    session.setAttribute("level",1);
                     response.sendRedirect("maths.jsp");
                 }catch (IOException e){
                     e.printStackTrace();
-        }
+                }
             }
             else if (login.equals("admin") && mdp.equals("admin"))
             {
                 try {
-                    request.setAttribute("login",login);
-                    request.setAttribute("mdp",mdp);
+                    session.setAttribute("level",0);
                     response.sendRedirect("bd.jsp");
                 }catch (IOException e){
                     e.printStackTrace();
+                }
             }
-            
+            else
+            {
+                try {
+                    response.sendRedirect("index.jsp");
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }  
         }
-    }
 }
