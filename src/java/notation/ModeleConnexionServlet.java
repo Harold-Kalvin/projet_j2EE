@@ -32,7 +32,7 @@ public class ModeleConnexionServlet {
             {
                 try {
                     session.setAttribute("level",1);
-                    response.sendRedirect("vote1.jsp");
+                    response.sendRedirect("maths.jsp");
                 }catch (IOException e){
                     e.printStackTrace();
                 }
