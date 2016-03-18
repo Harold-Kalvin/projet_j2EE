@@ -57,7 +57,7 @@ public class NoteFormServlet extends HttpServlet {
             else if (request.getParameter("chimie") != null)
             {
                 session.setAttribute("chimie", request.getParameter("chimie"));
-                new addNoteToBD().ajouterNote(request, response);
+                new AddNoteToBD().ajouterNote(request, response);
                 response.sendRedirect("valide.jsp");
             }
             else
