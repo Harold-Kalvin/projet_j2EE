@@ -17,5 +17,8 @@
                 %>
             </tr>
         </table>
+        <form action="DeconnexionServlet" method="post">
+            <input type="submit" value="Deconnexion" name="deco" />
+        </form>
     </body>
 </html>
