@@ -28,7 +28,7 @@ public class VueConnexionServlet {
             response.getWriter();
             request.getAttribute("login");
             request.getAttribute("mdp");
-            response.sendRedirect("vote1.jsp");
+            response.sendRedirect("maths.jsp");
             
         }catch (IOException e){
             e.printStackTrace();

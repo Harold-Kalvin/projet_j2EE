@@ -31,7 +31,7 @@ public class ModeleConnexionServlet {
                 try {
                     request.setAttribute("login",login);
                     request.setAttribute("mdp",mdp);
-                    response.sendRedirect("vote1.jsp");
+                    response.sendRedirect("maths.jsp");
                 }catch (IOException e){
                     e.printStackTrace();
         }
